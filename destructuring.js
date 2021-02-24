@@ -21,8 +21,7 @@ const productInformation = {
   smartTv: true,
 }
 
-// const { type, brand } = product.general;
-const { general: { type, brand } } = productInformation;
+const { type, brand } = productInformation.general;
 console.log(type, brand);
 
 // Opdracht 3: destructure wifi en bluetooth en log ze in de console
@@ -45,13 +44,24 @@ const tvOptions = {
   },
 };
 
-const { options: { connectivity: { popular: { wifi, bluetooth } } } } = tvOptions;
-// const { wifi, bluetooth } = tvOptions.options.connectivity.popular;
+const { wifi, bluetooth } = tvOptions.options.connectivity.popular;
 console.log(wifi, bluetooth);
 
-tvOptions.options.connectivity.popular.wifi;
+// Opdracht 4: destructure beide waardes uit deze array en log ze in de console
 
-// opdracht 4: destructure name en adress uit de return value van deze functie en log ze in de console
+const connectivity = ['wifi', 'bluetooth'];
+
+const [wifiSignal, bluetoothSignal] = connectivity;
+console.log(wifiSignal, bluetoothSignal);
+
+// Opdracht 5: destructure de eerste en derde waarde uit deze array en log ze in de console
+
+const tvSizes = [41, 43, 46, 56, 65];
+
+const [first,, third] = tvSizes;
+console.log(first, third);
+
+// opdracht 6: destructure name en adress uit de return value van deze functie en log ze in de console
 
 function getCompanyDetails() {
   return {
@@ -63,7 +73,7 @@ function getCompanyDetails() {
 const { name, adress } = getCompanyDetails();
 console.log(name, adress);
 
-// opdracht 5: destructure beide zinnetjes uit de return value van deze functie en log ze in de console
+// opdracht 7: destructure beide zinnetjes uit de return value van deze functie en log ze in de console. Let op: de functie verwacht argumenten bij het aanroepen!
 
 function getDetails(name, age) {
   return [`Your name is ${name}`, `You are ${age} years old`];
