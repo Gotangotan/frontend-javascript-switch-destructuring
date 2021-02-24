@@ -34,19 +34,17 @@ switch (errorCode) {
 // Opdracht 2: schrijf de volgende functie met if-statements om naar een functie met een switch statement.
 
 function monitorHeartrate(color) {
-  if (color === "green") {
-    return "Hartslag stabiel"
+  switch(color) {
+    case "green":
+      return "Hartslag stabiel"
+    case "yellow":
+      return "Hartslag verhoogd"
+    case "orange":
+    case "red":
+      return "Kritieke hartslag, actie vereist!"
+    default:
+      return "Status hartslag onbekend";
   }
-
-  if (color === "yellow") {
-    return "Hartslag verhoogd"
-  }
-
-  if (color === "red" || color === "orange") {
-    return "Kritieke hartslag, actie vereist!"
-  }
-
-  return "Status hartslag onbekend";
 }
 
 const heartrateState = monitorHeartrate("red");
